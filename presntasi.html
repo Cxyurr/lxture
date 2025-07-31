@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Satelit Nirkabel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .slide {
+            transition: all 0.5s ease;
+        }
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .satellite-icon {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+    <div class="fixed top-0 left-0 w-full z-50">
+        <div class="h-1 bg-gray-700">
+            <div id="progress" class="h-full bg-cyan-400 progress-bar" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-20 relative">
+        <!-- Slide 1: Cover -->
+        <div class="slide flex flex-col items-center justify-center min-h-screen" id="slide1">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="satellite-icon mb-8">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c389b0c4-948b-43bc-b4fd-074e71426452.png" alt="Ilustrasi satelit komunikasi modern di orbit bumi dengan panel surya terbuka dan sinyal radio berwarna biru" class="rounded-full border-4 border-cyan-400 p-2 mx-auto">
+                </div>
+                <h1 class="text-5xl font-bold text-cyan-400 mb-4">SATELIT NIRKABEL</h1>
+                <h2 class="text-2xl text-gray-300 mb-8">Gatau Intinya Itu Lah</h2>
+                <p class="text-gray-400">Presentasi oleh Kelompok 7</p>
+                <div class="mt-12 animate-bounce">
+                    <button onclick="nextSlide()" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Mulai Presentasi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Pengertian -->
+        <div class="slide hidden min-h-screen py-12" id="slide2">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">1</span>
+                    Pengertian Satelit Nirkabel
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-gray-300 mb-4">Satelit nirkabel adalah sistem komunikasi yang menggunakan satelit sebagai penghubung antara pengirim dan penerima sinyal tanpa menggunakan kabel.</p>
+                        <ul class="space-y-3 text-gray-300 list-disc pl-5">
+                            <li>Beroperasi di orbit Bumi pada ketinggian berbeda (LEO, MEO, GEO)</li>
+                            <li>Menggunakan gelombang radio untuk mentransmisikan data</li>
+                            <li>Memiliki cakupan luas hingga global</li>
+                            <li>Terdiri dari segmentasi ruang (satelit) dan segmentasi bumi (stasiun bumi)</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8e19b7bf-e78c-4497-9b6e-fdc11d16b5c4.png" alt="Diagram sistem satelit nirkabel menunjukkan bumi dan satelit di orbit dengan garis-garis sinyal antara stasiun bumi dan satelit" class="rounded-lg shadow-xl border border-gray-700">
+                        <div class="absolute -bottom-4 -right-4 bg-gray-800 px-4 py-2 rounded-lg text-sm text-gray-300">
+                            Ilustrasi Komunikasi Satelit
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Komponen Utama -->
+        <div class="slide hidden min-h-screen py-12" id="slide3">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">2</span>
+                    Komponen Utama Satelit Nirkabel
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Segmen Ruang (Satelit)</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li><span class="font-medium">Transponder</span>: Menerima, menguatkan, dan memancarkan kembali sinyal</li>
+                            <li><span class="font-medium">Subsistem Telemetry</span>: Memonitor kesehatan satelit</li>
+                            <li><span class="font-medium">Panel Surya</span>: Sumber tenaga listrik</li>
+                            <li><span class="font-medium">Antena</span>: Untuk menerima dan memancarkan sinyal</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Segmen Bumi (Stasiun Bumi)</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li><span class="font-medium">Antena Parabola</span>: Untuk mengirim/menerima sinyal</li>
+                            <li><span class="font-medium">UP/DOWN Converter</span>: Mengubah frekuensi sinyal</li>
+                            <li><span class="font-medium">Modem Satelit</span>: Mengubah data digital ke analog dan sebaliknya</li>
+                            <li><span class="font-medium">Sistem Tracking</span>: Melacak posisi satelit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/300d381e-7bf2-4151-be54-bea103d861d6.png" alt="Diagram blok sistem satelit lengkap dengan semua komponen utama yang dilabeli dengan jelas" class="mx-auto rounded-lg border border-gray-700">
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Cara Kerja -->
+        <div class="slide hidden min-h-screen py-12" id="slide4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">3</span>
+                    Cara Kerja Satelit Nirkabel
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+                    <div class="bg-cyan-600 p-4 rounded-lg text-center">
+                        <div class="text-white font-bold">1</div>
+                        <div class="text-xs text-white">Pengiriman Sinyal</div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg text-center">
+                        <div class="text-white font-bold">2</div>
+                        <div class="text-xs text-white">Transmisi ke Satelit</div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg text-center">
+                        <div class="text-white font-bold">3</div>
+                        <div class="text-xs text-white">Pemrosesan</div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg text-center">
+                        <div class="text-white font-bold">4</div>
+                        <div class="text-xs text-white">Pengiriman ke Tujuan</div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg text-center">
+                        <div class="text-white font-bold">5</div>
+                        <div class="text-xs text-white">Penerimaan Sinyal</div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <ol class="space-y-4 text-gray-300 list-decimal pl-5">
+                        <li>Sinyal dikirim dari stasiun bumi ke satelit (uplink) dalam bentuk gelombang radio</li>
+                        <li>Satelit menerima sinyal pada frequency tertentu dan menguatkannya</li>
+                        <li>Sinyal diubah ke frequency yang berbeda (untuk menghindari interferensi) dan dipancarkan kembali ke bumi (downlink)</li>
+                        <li>Sinyal diterima oleh stasiun bumi tujuan atau terminal pengguna</li>
+                        <li>Data diproses dan dikonversi kembali ke bentuk aslinya (suara, video, data digital, dll)</li>
+                    </ol>
+                </div>
+                <div class="mt-8 relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd2589cc-80e3-44fe-a1c8-74a882a10d99.png" alt="Animasi alur kerja satelit nirkabel menunjukkan sinyal bergerak dari bumi ke satelit dan kembali ke lokasi berbeda di bumi dengan panah berwarna" class="rounded-lg border border-gray-700">
+                    <div class="absolute -bottom-4 right-0 bg-gray-800 px-4 py-2 rounded-lg text-sm text-gray-300">
+                        Visualisasi Alur Komunikasi Satelit
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Jenis-jenis Orbit -->
+        <div class="slide hidden min-h-screen py-12" id="slide5">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">4</span>
+                    Jenis-jenis Orbit Satelit
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-3">LEO (Low Earth Orbit)</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>Ketinggian: 160 - 2000 km</li>
+                            <li>Waktu orbit: 90-120 menit</li>
+                            <li>Contoh: Starlink, ISS</li>
+                            <li>Latensi rendah (20-30ms)</li>
+                            <li>Cakupan kecil, butuh banyak satelit</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-3">MEO (Medium Earth Orbit)</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>Ketinggian: 2000 - 35786 km</li>
+                            <li>Waktu orbit: 2-12 jam</li>
+                            <li>Contoh: GPS, Galileo</li>
+                            <li>Latensi sedang (50-80ms)</li>
+                            <li>Cakupan regional</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-3">GEO (Geostationary Orbit)</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>Ketinggian: 35786 km</li>
+                            <li>Waktu orbit: 24 jam (sync dengan rotasi bumi)</li>
+                            <li>Contoh: Telkom 4, Astra</li>
+                            <li>Latensi tinggi (250-280ms)</li>
+                            <li>Cakupan 1/3 bumi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <div class="flex flex-col items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f66dc4a-476a-403e-9ee9-62e575a549a1.png" alt="Perbandingan visual tiga jenis orbit satelit di sekitar bumi dengan label ketinggian dan karakteristik masing-masing" class="mb-4 rounded-lg border border-gray-700">
+                        <p class="text-gray-300 text-center">Perbedaan karakteristik orbit satelit menunjukkan trade-off antara latensi, cakupan, dan jumlah satelit yang dibutuhkan.</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Kelebihan & Kekurangan -->
+        <div class="slide hidden min-h-screen py-12" id="slide6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">5</span>
+                    Kelebihan & Kekurangan
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-green-900 bg-opacity-30 p-6 rounded-lg border border-green-700">
+                        <h3 class="text-xl font-semibold text-green-400 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Kelebihan
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>Cakupan luas hingga ke daerah terpencil</li>
+                            <li>Infrastruktur relatif sederhana di sisi pengguna</li>
+                            <li>Independen dari infrastruktur darat yang rentan bencana</li>
+                            <li>Dapat menyediakan konektivitas global</li>
+                            <li>Mendukung berbagai layanan (suara, data, video)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg border border-red-700">
+                        <h3 class="text-xl font-semibold text-red-400 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Kekurangan
+                        </h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>Biaya tinggi untuk peluncuran dan pemeliharaan</li>
+                            <li>Latensi signifikan terutama untuk orbit GEO</li>
+                            <li>Rentan terhadap gangguan cuaca (hujan lebat, badai)</li>
+                            <li>Keterbatasan bandwidth dibanding jaringan fiber optik</li>
+                            <li>Masalah spektrum frekuensi dan orbital slot yang terbatas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-4">Perbandingan dengan Teknologi Lain</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-gray-300">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="px-4 py-2 text-left">Parameter</th>
+                                    <th class="px-4 py-2">Satelit</th>
+                                    <th class="px-4 py-2">Fiber Optik</th>
+                                    <th class="px-4 py-2">Wireless Terestrial</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr>
+                                    <td class="px-4 py-2">Latensi</td>
+                                    <td class="px-4 py-2 text-center">Tinggi</td>
+                                    <td class="px-4 py-2 text-center">Rendah</td>
+                                    <td class="px-4 py-2 text-center">Menengah</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Cakupan</td>
+                                    <td class="px-4 py-2 text-center">Global</td>
+                                    <td class="px-4 py-2 text-center">Terbatas</td>
+                                    <td class="px-4 py-2 text-center">Lokal/Regional</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Biaya</td>
+                                    <td class="px-4 py-2 text-center">Sangat Tinggi</td>
+                                    <td class="px-4 py-2 text-center">Tinggi</td>
+                                    <td class="px-4 py-2 text-center">Rendah-Menengah</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Aplikasi -->
+        <div class="slide hidden min-h-screen py-12" id="slide7">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">6</span>
+                    Aplikasi Satelit Nirkabel
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9ac8c4ab-e0d7-4a81-831f-d0ad199c2011.png" alt="Kapal pesiar di tengah laut dengan terminal VSAT di dek atas yang sedang menerima sinyal satelit" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Telekomunikasi Maritim</h3>
+                        <p class="text-gray-300 text-sm">Komunikasi untuk kapal laut, termasuk koneksi internet dan telepon di tengah samudera.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0346d636-f984-48f9-b663-cfb22e25d351.png" alt="Pusat kontrol penerbangan dengan monitor yang menampilkan posisi pesawat terbang di peta dunia" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Penerbangan</h3>
+                        <p class="text-gray-300 text-sm">Sistem komunikasi dan navigasi pesawat terbang, termasuk Wi-Fi dalam penerbangan.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/979daf88-587d-4f78-909c-2e23b13702fb.png" alt="Desa terpencil di pegunungan dengan parabola satelit kecil di atap rumah dan anak-anak yang sedang belajar online" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Konektivitas Pedesaan</h3>
+                        <p class="text-gray-300 text-sm">Menyediakan akses internet dan telekomunikasi ke daerah-daerah terpencil.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/70bb90dd-d1fb-40e5-9410-9f3ff8e966e4.png" alt="Lokasi bencana alam dengan tim penyelamat yang menggunakan perangkat komunikasi satelit dan stasiun bumi portabel" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Komunikasi Bencana</h3>
+                        <p class="text-gray-300 text-sm">Sistem komunikasi darurat ketika infrastruktur darat rusak akibat bencana alam.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3018569c-b4f7-4536-a164-c74b425e4b9d.png" alt="Monitor yang menampilkan siaran langsung acara olahraga dengan logo jaringan TV satelit di pojok layar" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Penyiaran</h3>
+                        <p class="text-gray-300 text-sm">Transmisi siaran TV langsung, radio digital, dan konten multimedia ke seluruh dunia.</p>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all group">
+                        <div class="h-40 mb-4 overflow-hidden rounded-md">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3e8a154-30df-4c46-a0fe-a1a89a019287.png" alt="Peta dunia dengan garis-garis merah menghubungkan pusat-pusat keuangan utama melalui koneksi satelit" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-2">Jaringan Keuangan</h3>
+                        <p class="text-gray-300 text-sm">Transfer data transaksi keuangan antar bank dan lembaga keuangan internasional.</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Tren & Masa Depan -->
+        <div class="slide hidden min-h-screen py-12" id="slide8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6 flex items-center">
+                    <span class="bg-cyan-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">7</span>
+                    Tren & Masa Depan
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Perkembangan Terkini</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>Konstelasi satelit LEO masal (Starlink, OneWeb, Kuiper) untuk internet global</li>
+                            <li>Peningkatan kapasitas dengan teknologi HTS (High Throughput Satellite)</li>
+                            <li>Penggunaan frekuensi higher bands (Q/V, W) untuk kapasitas lebih besar</li>
+                            <li>Integrasi dengan jaringan 5G dan IoT</li>
+                            <li>Pengembangan terminal VSAT yang lebih kecil dan murah</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Tantangan Masa Depan</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>Kepadatan orbit dan masalah debris ruang angkasa</li>
+                            <li>Koordinasi spektrum frekuensi antar negara</li>
+                            <li>Kompetisi dengan jaringan terrestrial yang semakin cepat</li>
+                            <li>Keamanan siber untuk jaringan satelit</li>
+                            <li>Sustainability dan pengurangan sampah ruang angkasa</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-4 md:mb-0 md:pr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2dc76e37-217b-4de7-ae8d-e44a6d4fc2f2.png" alt="Visualisasi konstelasi satelit ribuan satelit LEO yang membentuk jaringan global di sekitar bumi dengan sinar laser inter-satelit" class="rounded-lg border border-gray-700">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-semibold text-cyan-400 mb-3">Internet Satelit Generasi Baru</h3>
+                            <p class="text-gray-300 text-sm">
+                                Konstelasi satelit LEO generasi baru seperti Starlink berjanji memberikan internet kecepatan tinggi dengan latensi rendah ke seluruh dunia. 
+                                Teknologi laser inter-satelit akan memungkinkan jaringan di ruang angkasa tanpa bergantung pada stasiun bumi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">Sebelumnya</button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Kesimpulan -->
+        <div class="slide hidden min-h-screen py-12" id="slide9">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block p-2 bg-cyan-600 bg-opacity-20 rounded-full mb-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/68a5ce66-87ed-45e4-8b3d-3ff81650df65.png" alt="Ilustrasi peta bumi yang terhubung oleh jaringan satelit dan sinyal nirkabel" class="rounded-full border-4 border-cyan-400 w-24 h-24 mx-auto">
+                </div>
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">Kesimpulan</h2>
+                <div class="max-w-2xl mx-auto">
+                    <p class="text-gray-300 mb-6">
+                        Teknologi satelit nirkabel tetap menjadi tulang punggung komunikasi global, terutama untuk konektivitas 
+                        di daerah terpencil dan aplikasi khusus. Meskipun menghadapi tantangan latensi dan biaya, 
+                        inovasi seperti konstelasi satelit LEO mengubah lanskap komunikasi satelit.
+                    </p>
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 text-left mb-8">
+                        <h3 class="text-xl font-semibold text-cyan-400 mb-3">Poin-poin Penting:</h3>
+                        <ul class="space-y-2 text-gray-300 list-disc pl-5 text-sm">
+                            <li>Satelit nirkabel adalah solusi unik untuk komunikasi global tanpa bergantung infrastruktur darat</li>
+                            <li>Berbagai jenis orbit (LEO, MEO, GEO) menawarkan trade-off antara latensi, cakupan, dan biaya</li>
+                            <li>Teknologi terus berkembang untuk mengatasi keterbatasan masa lalu</li>
+                            <li>Aplikasinya vital untuk telekomunikasi, penyiaran, maritim, penerbangan, dan layanan darurat</li>
+                            <li>Masa depan menjanjikan internet satelit berkecepatan tinggi dengan latensi rendah</li>
+                        </ul>
+                    </div>
+                    <button onclick="nextSlide()" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-all mt-4">Akhiri Presentasi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Penutup -->
+        <div class="slide hidden min-h-screen py-20" id="slide10">
+            <div class="max-w-2xl mx-auto text-center">
+                <h1 class="text-4xl font-bold text-cyan-400 mb-8">Terima Kasih</h1>
+                <div class="mb-8">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d8aa2519-deb4-4b07-ad32-dd549af56f5a.png" alt="Tim profesional beragam berdiri bersama dengan latar belakang visual satelit dan konektivitas nirkabel" class="rounded-lg border border-gray-700 mx-auto">
+                </div>
+                <p class="text-gray-300 mb-8">
+                    Kelompok 7 Nih bos (ajar gantenk).
+                </p>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 inline-block">
+                    <h3 class="text-lg font-semibold text-cyan-400 mb-3">Ada Pertanyaan?</h3>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300">Terimakasih</a>
+                        <span class="text-gray-500">|</span>
+                        <a href="#" class="text-cyan-400 hover:text-cyan-300">Semuanya</a>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <button onclick="goToSlide(1)" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-all">
+                        Kembali ke Awal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function updateProgress() {
+            const progress = (currentSlide / totalSlides) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+        }
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.add('hidden');
+                slide.classList.remove('active');
+            });
+            
+            currentSlide = n;
+            updateProgress();
+            
+            const activeSlide = document.getElementById(`slide${n}`);
+            activeSlide.classList.remove('hidden');
+            setTimeout(() => {
+                activeSlide.classList.add('active');
+            }, 10);
+            
+            window.scrollTo(0, 0);
+        }
+
+        function goToSlide(n) {
+            if (n < 1) n = 1;
+            if (n > totalSlides) n = totalSlides;
+            showSlide(n);
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        // Initialize first slide
+        showSlide(1);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
